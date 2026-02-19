@@ -368,13 +368,37 @@ class AIPersonalAgentEcosystem {
   // Configuration and setup methods
 
   loadConfiguration() {
-    const configPath = path.join(__dirname, '../config/api-keys.json');
-    
-    if (!fs.existsSync(configPath)) {
-      throw new Error(`Configuration file not found: ${configPath}`);
-    }
-
-    return JSON.parse(fs.readFileSync(configPath, 'utf-8'));
+    // 環境変数からシークレットを読み込む（config JSONファイルは使用しない）
+    return {
+      anthropic: {
+        apiKey: process.env.ANTHROPIC_API_KEY || ''
+      },
+      openai: {
+        apiKey: process.env.OPENAI_API_KEY || '',
+        organization: process.env.OPENAI_ORG_ID || ''
+      },
+      glm: {
+        apiKey: process.env.GLM_API_KEY || '',
+        baseUrl: process.env.GLM_BASE_URL || 'https://open.bigmodel.cn/api/paas/v4/'
+      },
+      deepseek: {
+        apiKey: process.env.DEEPSEEK_API_KEY || '',
+        baseUrl: process.env.DEEPSEEK_BASE_URL || 'https://api.deepseek.com'
+      },
+      discord: {
+        token: process.env.DISCORD_TOKEN || '',
+        clientId: process.env.DISCORD_CLIENT_ID || '',
+        guildId: process.env.DISCORD_GUILD_ID || ''
+      },
+      google: {
+        clientId: process.env.GOOGLE_CLIENT_ID || '',
+        clientSecret: process.env.GOOGLE_CLIENT_SECRET || '',
+        refreshToken: process.env.GOOGLE_REFRESH_TOKEN || ''
+      },
+      obsidian: {
+        vaultPath: process.env.OBSIDIAN_VAULT_PATH || ''
+      }
+    };
   }
 
   validateConfiguration() {

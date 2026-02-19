@@ -1,0 +1,18 @@
+# シークレット・認証情報
+.env
+.env.*
+config/api-keys.json
+config/notion-config.json
+config/spotify-tokens.json
+
+# 開発・ビルド成果物
+node_modules/
+logs/
+data/
+*.log
+.git/
+.gitignore
+
+# ドキュメント
+README.md
+*.md

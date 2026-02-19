@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  agent:
+    build: .
+    restart: unless-stopped
+    # シークレットは .env ファイルから読み込む（コードには埋め込まない）
+    env_file:
+      - .env
+    volumes:
+      - ./logs:/app/logs
+      # Obsidianボルトをマウント（読み取り専用）
+      - ${OBSIDIAN_VAULT_PATH:-/tmp/vault}:/vault:ro
+    environment:
+      - NODE_ENV=production
+      - OBSIDIAN_VAULT_PATH=/vault
+
+  # 軽量エージェントモード
+  lightweight:
+    build: .
+    restart: unless-stopped
+    env_file:
+      - .env
+    volumes:
+      - ./logs:/app/logs
+    environment:
+      - NODE_ENV=production
+    command: ["node", "src/lightweight-index.js"]
+
+# Docker Secrets を使う場合（本番環境推奨）
+# secrets:
+#   anthropic_api_key:
+#     external: true
+#   deepseek_api_key:
+#     external: true

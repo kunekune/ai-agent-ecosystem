@@ -166,8 +166,23 @@ class LightweightAIAgent {
 
   // Private methods
   loadConfiguration() {
-    const configPath = path.join(__dirname, '../config/api-keys.json');
-    return JSON.parse(fs.readFileSync(configPath, 'utf-8'));
+    return {
+      anthropic: { apiKey: process.env.ANTHROPIC_API_KEY || '' },
+      glm: {
+        apiKey: process.env.GLM_API_KEY || '',
+        baseUrl: process.env.GLM_BASE_URL || 'https://open.bigmodel.cn/api/paas/v4/'
+      },
+      deepseek: {
+        apiKey: process.env.DEEPSEEK_API_KEY || '',
+        baseUrl: process.env.DEEPSEEK_BASE_URL || 'https://api.deepseek.com'
+      },
+      discord: {
+        token: process.env.DISCORD_TOKEN || '',
+        clientId: process.env.DISCORD_CLIENT_ID || '',
+        guildId: process.env.DISCORD_GUILD_ID || ''
+      },
+      obsidian: { vaultPath: process.env.OBSIDIAN_VAULT_PATH || '' }
+    };
   }
 
   setupLogger() {

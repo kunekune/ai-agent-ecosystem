@@ -25,8 +25,15 @@ class NotionIntegration {
   }
 
   loadConfig() {
-    const configPath = path.join(__dirname, '../../config/notion-config.json');
-    return JSON.parse(fs.readFileSync(configPath, 'utf-8'));
+    return {
+      api_key: process.env.NOTION_API_KEY || '',
+      version: process.env.NOTION_VERSION || '2022-06-28',
+      databases: {
+        blog_articles: process.env.NOTION_DB_BLOG || '',
+        live_events: process.env.NOTION_DB_LIVE_EVENTS || '',
+        automation_tasks: process.env.NOTION_DB_AUTOMATION || ''
+      }
+    };
   }
 
   /**
@@ -221,15 +228,11 @@ class NotionIntegration {
    * 設定ファイルにデータベースID保存
    */
   async updateConfigWithDatabaseIds(databaseIds) {
-    const configPath = path.join(__dirname, '../../config/notion-config.json');
-    const config = await fs.readJson(configPath);
-    
-    config.databases = {
-      ...config.databases,
+    // データベースIDはランタイムのみ保持（ファイルには書き込まない）
+    this.config.databases = {
+      ...this.config.databases,
       ...databaseIds
     };
-    
-    await fs.writeJson(configPath, config, { spaces: 2 });
   }
 
   /**
