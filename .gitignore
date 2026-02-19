@@ -1,0 +1,10 @@
+node_modules/
+.env
+.env.*
+!.env.example
+logs/
+data/
+*.log
+config/api-keys.json
+config/notion-config.json
+config/spotify-tokens.json

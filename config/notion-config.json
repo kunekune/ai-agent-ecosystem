@@ -1,0 +1,9 @@
+{
+  "api_key": "YOUR_NOTION_API_KEY_HERE",
+  "version": "2022-06-28",
+  "databases": {
+    "blog_articles": "",
+    "live_events": "",
+    "automation_tasks": ""
+  }
+}

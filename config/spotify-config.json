@@ -1,0 +1,6 @@
+{
+  "client_id": "795b433d51654250bf18f4002ba52fd8",
+  "client_secret": "d4003ddb979a43b1a195cea4625b5f1d",
+  "redirect_uri": "http://127.0.0.1:8888/callback",
+  "scope": "user-follow-read user-read-private user-library-read"
+}

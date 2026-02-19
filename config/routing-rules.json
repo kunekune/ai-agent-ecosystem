@@ -1,0 +1,111 @@
+{
+  "complexityThresholds": {
+    "L5_editor_in_chief": {
+      "score": 10,
+      "role": "編集長",
+      "indicators": [
+        "ブログ最終仕上げ",
+        "人生相談",
+        "重要戦略",
+        "最終編集",
+        "価値観深堀り",
+        "人生決断",
+        "戦略立案",
+        "最終判断"
+      ],
+      "model": "claude-opus-4.6"
+    },
+    "L4_writing_officer": {
+      "score": 7,
+      "role": "執筆官", 
+      "indicators": [
+        "ブログ初稿",
+        "複雑な文章作成",
+        "メール返信案",
+        "記事執筆",
+        "文章構成",
+        "創作",
+        "レポート作成",
+        "プレゼン資料"
+      ],
+      "model": "claude-sonnet-4"
+    },
+    "L3_secretary": {
+      "score": 5,
+      "role": "秘書",
+      "indicators": [
+        "Googleカレンダー",
+        "Gmail操作",
+        "外部ツール連携",
+        "スケジュール調整",
+        "API操作",
+        "データ変換",
+        "予約管理",
+        "連絡調整"
+      ],
+      "model": "glm-4.7"
+    },
+    "L2_gatekeeper": {
+      "score": 3,
+      "role": "門番",
+      "indicators": [
+        "日常チャット",
+        "タスク分類",
+        "Inbox記録",
+        "要約",
+        "事実抽出",
+        "短文処理",
+        "分類作業",
+        "定型処理"
+      ],
+      "model": "deepseek-v3"
+    },
+    "L1_engineer": {
+      "score": 1,
+      "role": "工兵",
+      "indicators": [
+        "Ubuntu設定",
+        "ファイル整理",
+        "デバッグ",
+        "システム操作",
+        "コード修正",
+        "設定変更",
+        "ファイル操作",
+        "技術作業"
+      ],
+      "model": "claude-code"
+    }
+  },
+  "costOptimization": {
+    "enabled": true,
+    "maxCostPerHour": 5.0,
+    "preferCheapModel": true,
+    "escalationRules": {
+      "errorRetry": true,
+      "userUnsatisfied": true,
+      "qualityInsufficient": true
+    }
+  },
+  "emotionalContext": {
+    "enabled": true,
+    "factors": {
+      "timeOfDay": {
+        "morning": "efficient",
+        "afternoon": "balanced", 
+        "evening": "gentle",
+        "night": "supportive"
+      },
+      "weekday": {
+        "monday": "motivational",
+        "friday": "relaxed",
+        "weekend": "creative"
+      },
+      "userMood": {
+        "tired": "gentle",
+        "stressed": "calming",
+        "excited": "energetic",
+        "focused": "efficient"
+      }
+    }
+  }
+}

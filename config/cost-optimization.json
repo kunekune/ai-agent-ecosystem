@@ -1,0 +1,43 @@
+{
+  "enabled": true,
+  "dailyBudget": 11.11,
+  "contextTokens": 80000,
+  "cache": true,
+  
+  "budgetAlerts": {
+    "info": 50,
+    "warning": 70,
+    "critical": 90
+  },
+  
+  "emergencyMode": {
+    "enabled": false,
+    "allowedLevels": ["L1", "L2", "L3"],
+    "restrictedLevels": ["L4", "L5"]
+  },
+  
+  "weeklyOptimization": {
+    "enabled": true,
+    "schedule": "0 23 * * 0",
+    "analysisModel": "L5",
+    "autoUpdate": true
+  },
+  
+  "cachePatterns": [
+    "Enhanced PARA",
+    "5段階エスカレーション",
+    "L1工兵", "L2門番", "L3秘書", "L4執筆官", "L5編集長",
+    "Obsidian統合",
+    "Yokohama Bay",
+    "システムプロンプト",
+    "感情適応",
+    "思考記録"
+  ],
+  
+  "optimization": {
+    "compactionRatio": 0.2,
+    "maxMessageHistory": 100,
+    "tokenEstimationRatio": 0.25,
+    "cacheHitSavings": 0.9
+  }
+}

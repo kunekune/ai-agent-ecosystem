@@ -1,0 +1,83 @@
+{
+  "enabled": true,
+  "schedule": {
+    "dayOfMonth": 1,
+    "time": "09:00"
+  },
+  
+  "modelSurvey": {
+    "enabled": true,
+    "sources": [
+      "https://openai.com/pricing",
+      "https://docs.anthropic.com/claude/docs",
+      "https://platform.deepseek.com/pricing",
+      "https://open.bigmodel.cn/pricing",
+      "https://github.com/openclaw/openclaw/releases",
+      "https://docs.openclaw.ai/changelog"
+    ],
+    "trackingMetrics": [
+      "costPerToken",
+      "responseQuality", 
+      "processingSpeed",
+      "contextLength",
+      "specialCapabilities"
+    ]
+  },
+  
+  "currentModels": {
+    "L5_editor": {
+      "current": "claude-opus-4.6",
+      "costPerToken": 0.015,
+      "strengths": ["deep_reasoning", "creative_writing"],
+      "lastEvaluated": "2026-02-17"
+    },
+    "L4_writer": {
+      "current": "claude-sonnet-4",
+      "costPerToken": 0.003,
+      "strengths": ["structured_writing", "fast_turnaround"],
+      "lastEvaluated": "2026-02-17"
+    },
+    "L3_secretary": {
+      "current": "glm-4.7",
+      "costPerToken": 0.0008,
+      "strengths": ["api_operations", "scheduling"],
+      "lastEvaluated": "2026-02-17"
+    },
+    "L2_gatekeeper": {
+      "current": "deepseek-v3",
+      "costPerToken": 0.00014,
+      "strengths": ["fast_classification", "cost_efficient"],
+      "lastEvaluated": "2026-02-17"
+    },
+    "L1_engineer": {
+      "current": "claude-code",
+      "costPerToken": 0.003,
+      "strengths": ["code_generation", "system_operations", "openclaw_native"],
+      "lastEvaluated": "2026-02-17",
+      "status": "OPTIMAL - 最強継続"
+    },
+    "potential_addition": {
+      "kimi_k25": {
+        "cost": "FREE",
+        "capabilities": ["openclaw_native", "free_operation"],
+        "evaluation_needed": true,
+        "integration_priority": "MEDIUM",
+        "best_fit": "L2門番補助またはL3秘書補助"
+      }
+    }
+  },
+  
+  "optimizationCriteria": {
+    "costEfficiency": 0.4,
+    "qualityMaintenance": 0.3,
+    "speedImprovement": 0.2,
+    "featureAddition": 0.1
+  },
+  
+  "reportGeneration": {
+    "obsidianPath": "01-Projects/ai-personal-agent-ecosystem/monthly-optimization-reports/",
+    "includeRecommendations": true,
+    "includeTestResults": true,
+    "includeCostAnalysis": true
+  }
+}

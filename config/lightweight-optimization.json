@@ -1,0 +1,30 @@
+{
+  "enabled": true,
+  "dailyBudget": 11.11,
+  "lightweight": true,
+  
+  "monitoring": {
+    "memoryOnly": true,
+    "fileIOMinimal": true,
+    "logSamplingRate": 0.1,
+    "dashboardUpdateInterval": 3600000
+  },
+  
+  "alerts": {
+    "thresholds": [0.7, 0.9],
+    "maxPerDay": 2,
+    "emergencyModeAt": 0.9
+  },
+  
+  "optimization": {
+    "contextCompression": false,
+    "cache": false,
+    "complexityAnalysis": "simple"
+  },
+  
+  "reporting": {
+    "dailyReport": false,
+    "weeklyReport": true,
+    "realtimeMonitoring": false
+  }
+}

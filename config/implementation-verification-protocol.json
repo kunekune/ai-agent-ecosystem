@@ -1,0 +1,70 @@
+{
+  "implementationVerificationProtocol": {
+    "version": "1.0",
+    "purpose": "Prevent false 'implementation complete' reports",
+    "mandatoryChecks": {
+      "beforeReporting": true,
+      "realTimeVerification": true,
+      "evidenceRequired": true
+    },
+    
+    "implementationDefinition": {
+      "level1_fileCreation": {
+        "description": "Config files, scripts created",
+        "reportAs": "PREPARED",
+        "notReportAs": "IMPLEMENTED"
+      },
+      "level2_systemIntegration": {
+        "description": "Code integrated into running system", 
+        "reportAs": "INTEGRATED",
+        "notReportAs": "IMPLEMENTED"
+      },
+      "level3_functionalVerification": {
+        "description": "System restart + functional test passed",
+        "reportAs": "IMPLEMENTED",
+        "requiredEvidence": ["TEST_PASSED", "SYSTEM_RESTART", "FUNCTIONAL_PROOF"]
+      }
+    },
+    
+    "mandatoryChecklist": {
+      "beforeAnyImplementationReport": [
+        "Can I demonstrate this actually works?",
+        "Did I test it after integration?",
+        "Is the system currently running with this change?",
+        "Do I have proof of functionality?"
+      ],
+      
+      "evidenceRequirements": {
+        "configChanges": "Show diff of actual running config",
+        "codeIntegration": "Show modified running code", 
+        "systemRestart": "Show restart log with new features loaded",
+        "functionalTest": "Show actual execution result"
+      }
+    },
+    
+    "prohibitedReports": {
+      "forbidden": [
+        "Implementation complete (without functional test)",
+        "System deployed (without restart)",
+        "Feature active (without verification)",
+        "Protocol operational (without evidence)"
+      ],
+      "allowedAlternatives": [
+        "Configuration prepared",
+        "Integration ready", 
+        "Testing required",
+        "Awaiting verification"
+      ]
+    },
+    
+    "realTimeVerification": {
+      "enabled": true,
+      "checkCommands": {
+        "systemRunning": "systemctl status ai-agent || ps aux | grep -v grep | grep ai-agent",
+        "configLoaded": "Check if config file is actually loaded",
+        "featureActive": "Execute test command for feature",
+        "processRestarted": "Check process start time vs config modification time"
+      }
+    }
+  }
+}

@@ -1,0 +1,101 @@
+{
+  "smartControlSystem": {
+    "enabled": true,
+    "costBudget": 11.11,
+    "maintainCheapModels": true,
+    "philosophy": "上位レイヤーによる下位レイヤー制御",
+    
+    "layerControl": {
+      "L5_to_L4_L3": {
+        "preTaskInstructions": {
+          "apiImplementation": {
+            "mandate": "MUST provide real API documentation URL before implementation",
+            "forbidden": ["Math.random()", "example.com", "hardcoded arrays"],
+            "escalationTrigger": "No API documentation provided"
+          },
+          "dataGeneration": {
+            "mandate": "FORBIDDEN - escalate to L4 immediately",
+            "autoEscalate": true
+          }
+        }
+      },
+      "L4_to_L2_L3": {
+        "taskConstraints": {
+          "implementation": {
+            "requiredEvidence": ["API_URL", "DOCUMENTATION", "TEST_RESULT"],
+            "forbiddenPatterns": ["Math.random", "const venues = [", "setTimeout.*resolve"],
+            "validationRequired": true
+          },
+          "systemIntegration": {
+            "mandate": "Provide exact curl commands for testing",
+            "preCheck": "Verify endpoint accessibility",
+            "fallbackPlan": "Honest error reporting if unavailable"
+          }
+        }
+      }
+    },
+    
+    "costEfficientControl": {
+      "preventiveInstructions": {
+        "L3_glm47": {
+          "prefix": "CONSTITUTIONAL REQUIREMENT: You MUST provide API documentation URL and test the endpoint before any implementation. Math.random() is FORBIDDEN.",
+          "suffix": "If you cannot access real data, respond with 'ESCALATION_REQUIRED: Real data unavailable'",
+          "restrictedFunctions": ["Math.random", "setTimeout for fake async", "hardcoded sample data"]
+        },
+        "L2_deepseek": {
+          "prefix": "CLASSIFICATION ONLY: Do not generate facts or implement APIs. If implementation is needed, respond 'ESCALATION_REQUIRED'",
+          "suffix": "Your role is classification and extraction only.",
+          "restrictedFunctions": ["data generation", "API calls", "fact creation"]
+        }
+      },
+      
+      "realTimeValidation": {
+        "enabled": true,
+        "patterns": {
+          "immediate_escalation": ["Math.random()", "example.com", "venues = ["],
+          "validation_required": ["fetch(", "curl ", "api."],
+          "forbidden_responses": ["fake", "mock", "dummy", "sample"]
+        },
+        "costImpact": "minimal - text pattern matching only"
+      },
+      
+      "efficientEscalation": {
+        "triggers": {
+          "pattern_violation": "immediate L4 escalation",
+          "api_implementation": "require L4 pre-approval",
+          "data_generation": "forbidden for L2/L3"
+        },
+        "costSaving": "Prevent expensive re-work by early detection"
+      }
+    },
+    
+    "budgetPreservation": {
+      "currentBudget": 11.11,
+      "modelCosts": {
+        "L5_opus": "high cost - strategic use only",
+        "L4_sonnet": "medium cost - for complex tasks",
+        "L3_glm47": "low cost - with smart control",
+        "L2_deepseek": "very low cost - with restrictions",
+        "L1_code": "specialized - efficient for tech tasks"
+      },
+      "smartAllocation": {
+        "preventCostlyMistakes": "Better control prevents expensive re-work",
+        "targetRatio": "80% L2/L3, 15% L4, 5% L5",
+        "qualityGates": "Early detection vs expensive fixes"
+      }
+    }
+  },
+  
+  "implementationStrategy": {
+    "phase1": "Add constitutional prefixes to L2/L3 prompts",
+    "phase2": "Implement real-time pattern detection",
+    "phase3": "Smart escalation rules",
+    "phase4": "Monitor cost effectiveness",
+    
+    "expectedOutcome": {
+      "costReduction": "Prevent expensive hallucination cleanup",
+      "qualityImprovement": "Clear constraints prevent problems",
+      "efficiency": "Less re-work, more first-time success"
+    }
+  }
+}

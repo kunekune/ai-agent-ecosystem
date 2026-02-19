@@ -1,0 +1,168 @@
+{
+  "complexityThresholds": {
+    "L5_editor_in_chief": {
+      "score": 10,
+      "role": "編集長",
+      "indicators": [
+        "ブログ最終仕上げ",
+        "人生相談", 
+        "重要戦略",
+        "最終編集",
+        "価値観深堀り",
+        "人生決断",
+        "戦略立案",
+        "最終判断",
+        "憲章違反エスカレーション"
+      ],
+      "model": "claude-opus-4.6"
+    },
+    "L4_writing_officer": {
+      "score": 7,
+      "role": "執筆官",
+      "indicators": [
+        "ブログ初稿",
+        "複雑な文章作成",
+        "メール返信案", 
+        "記事執筆",
+        "文章構成",
+        "創作",
+        "レポート作成",
+        "プレゼン資料",
+        "API実装",
+        "外部データ取得",
+        "システム統合",
+        "品質チェック"
+      ],
+      "model": "claude-sonnet-4"
+    },
+    "L3_secretary": {
+      "score": 5,
+      "role": "秘書",
+      "indicators": [
+        "Googleカレンダー",
+        "Gmail操作",
+        "スケジュール調整",
+        "予約管理",
+        "連絡調整",
+        "データ変換",
+        "テキスト整形"
+      ],
+      "model": "claude-sonnet-4",
+      "restrictions": {
+        "forbidden": ["API実装", "外部データ生成", "イベント作成", "事実生成"]
+      }
+    },
+    "L2_gatekeeper": {
+      "score": 3,
+      "role": "門番",
+      "indicators": [
+        "日常チャット",
+        "タスク分類",
+        "Inbox記録",
+        "要約",
+        "短文処理",
+        "定型処理"
+      ],
+      "model": "claude-sonnet-4",
+      "restrictions": {
+        "forbidden": ["データ創造", "API呼び出し", "外部統合", "事実生成", "実装作業"]
+      }
+    },
+    "L1_engineer": {
+      "score": 1,
+      "role": "工兵",
+      "indicators": [
+        "Ubuntu設定",
+        "ファイル整理",
+        "デバッグ",
+        "システム操作",
+        "コード修正", 
+        "設定変更",
+        "ファイル操作",
+        "技術作業"
+      ],
+      "model": "claude-code",
+      "constitutionalGuard": true
+    }
+  },
+  "costOptimization": {
+    "enabled": true,
+    "maxCostPerHour": 25.0,
+    "preferCheapModel": false,
+    "qualityFirst": true,
+    "constitutionalMinimum": 0.8,
+    "escalationRules": {
+      "errorRetry": true,
+      "userUnsatisfied": true,
+      "qualityInsufficient": true,
+      "constitutionalViolation": true
+    }
+  },
+  "restrictedModels": {
+    "glm-4.7": {
+      "allowedTasks": ["テキスト整形", "要約", "分類", "翻訳"],
+      "forbiddenTasks": ["API実装", "外部データ取得", "イベント生成", "システム統合"],
+      "autoEscalation": true,
+      "escalationTarget": "claude-sonnet-4"
+    },
+    "deepseek-v3": {
+      "allowedTasks": ["分類", "抽出", "パターン認識", "簡単な要約"],
+      "forbiddenTasks": ["事実生成", "データ創造", "API呼び出し", "外部統合"],
+      "autoEscalation": true, 
+      "escalationTarget": "claude-sonnet-4"
+    }
+  },
+  "constitutionalGuard": {
+    "enabled": true,
+    "checkAllImplementations": true,
+    "violationEscalation": "claude-opus-4.6",
+    "patterns": [
+      "Math.random()",
+      "example.com",
+      "fake.com", 
+      "mock.com",
+      "const venues = [",
+      "const events = [",
+      "setTimeout.*resolve"
+    ],
+    "apiValidation": true,
+    "realTimeCheck": true
+  },
+  "qualityAssurance": {
+    "enabled": true,
+    "minimumModelTier": "constitutional",
+    "modelTiers": {
+      "constitutional": ["claude-opus-4.6", "claude-sonnet-4"],
+      "supervised": ["claude-code"],
+      "restricted": ["glm-4.7", "deepseek-v3"]
+    },
+    "criticalTasks": {
+      "api_implementation": "constitutional",
+      "data_generation": "constitutional", 
+      "external_integration": "constitutional",
+      "system_modification": "supervised"
+    }
+  },
+  "emotionalContext": {
+    "enabled": true,
+    "factors": {
+      "timeOfDay": {
+        "morning": "efficient",
+        "afternoon": "balanced",
+        "evening": "gentle", 
+        "night": "supportive"
+      },
+      "weekday": {
+        "monday": "motivational",
+        "friday": "relaxed",
+        "weekend": "creative"
+      },
+      "userMood": {
+        "tired": "gentle",
+        "stressed": "calming",
+        "excited": "energetic",
+        "focused": "efficient"
+      }
+    }
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "name": "ai-personal-agent-ecosystem",
+  "version": "1.0.0",
+  "description": "ユーザーより詳しい外部脳AIエージェントシステム",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "lightweight": "node src/lightweight-index.js",
+    "interactive": "node src/lightweight-index.js --interactive",
+    "status": "node src/lightweight-index.js --status",
+    "dev": "nodemon src/index.js",
+    "test": "jest",
+    "build": "webpack --mode production"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.24.0",
+    "@notionhq/client": "^5.9.0",
+    "axios": "^1.6.0",
+    "cheerio": "^1.2.0",
+    "discord.js": "^14.14.0",
+    "dotenv": "^16.3.0",
+    "fs-extra": "^11.2.0",
+    "googleapis": "^128.0.0",
+    "moment": "^2.29.4",
+    "node-cron": "^3.0.3",
+    "openai": "^4.20.0",
+    "spotify-web-api-node": "^5.0.2",
+    "winston": "^3.11.0"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "nodemon": "^3.0.2",
+    "webpack": "^5.89.0"
+  },
+  "keywords": [
+    "AI",
+    "agent",
+    "automation",
+    "personal-assistant"
+  ],
+  "author": "kunekune",
+  "license": "MIT"
+}

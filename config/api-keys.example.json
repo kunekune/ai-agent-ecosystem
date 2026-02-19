@@ -1,0 +1,30 @@
+{
+  "openai": {
+    "apiKey": "YOUR_OPENAI_API_KEY_HERE",
+    "organization": "YOUR_ORG_ID_HERE"
+  },
+  "anthropic": {
+    "apiKey": "YOUR_ANTHROPIC_API_KEY_HERE"
+  },
+  "glm": {
+    "apiKey": "YOUR_GLM_API_KEY_HERE",
+    "baseUrl": "https://open.bigmodel.cn/api/paas/v4/"
+  },
+  "deepseek": {
+    "apiKey": "YOUR_DEEPSEEK_API_KEY_HERE", 
+    "baseUrl": "https://api.deepseek.com"
+  },
+  "discord": {
+    "token": "YOUR_DISCORD_BOT_TOKEN_HERE",
+    "clientId": "YOUR_DISCORD_CLIENT_ID_HERE",
+    "guildId": "1472580457374941207"
+  },
+  "google": {
+    "clientId": "YOUR_GOOGLE_CLIENT_ID_HERE",
+    "clientSecret": "YOUR_GOOGLE_CLIENT_SECRET_HERE",
+    "refreshToken": "YOUR_GOOGLE_REFRESH_TOKEN_HERE"
+  },
+  "obsidian": {
+    "vaultPath": "/home/kunekune/Dropbox/obsidian-vault"
+  }
+}

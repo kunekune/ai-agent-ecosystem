@@ -1,0 +1,100 @@
+{
+  "constitutionalProtocol": {
+    "version": "1.0",
+    "priority": "MAXIMUM",
+    "enforcement": "MANDATORY", 
+    "scope": "ALL_MODELS",
+    "implementationDate": "2026-02-18",
+    
+    "prohibitedPatterns": {
+      "dataFabrication": {
+        "mathRandom": "Math.random()",
+        "hardcodedArrays": "const (venues|events|artists|sampleData) = \\[",
+        "fakeAsync": "setTimeout.*resolve",
+        "examples": ["Math.random() * 100", "const venues = ['東京ドーム']", "setTimeout(resolve, 1000)"]
+      },
+      
+      "fakeAPIs": {
+        "exampleDomains": "\\.(example|test|fake|mock)\\.",
+        "undocumentedEndpoints": "API calls without documentation URL",
+        "examples": ["https://api.example.com", "https://fake-api.test.com"]
+      },
+      
+      "fabricatedSpecs": {
+        "nonexistentLibraries": "Referencing non-existent libraries",
+        "imaginaryFunctions": "Creating fictional API functions",
+        "examples": ["ticketpia.getEvents()", "venue.searchLive()"]
+      }
+    },
+    
+    "mandatoryEvidence": {
+      "apiImplementation": {
+        "required": ["DOCUMENTATION_URL", "SAMPLE_DATA", "ENDPOINT_TEST"],
+        "format": "Must provide official docs URL + raw JSON sample before coding"
+      },
+      
+      "dataGeneration": {
+        "prohibited": "ALL_FORMS",
+        "escalation": "Immediate L4/L5 escalation required"
+      }
+    },
+    
+    "selfAuditProcess": {
+      "mandatory": true,
+      "preResponseChecks": [
+        "Does this contain Math.random() fabrication?",
+        "Are reported numbers (e.g., 387 events) real or fabricated?", 
+        "Are referenced APIs actually documented?",
+        "Can I provide proof of real data access?"
+      ],
+      "failureResponse": "CONSTITUTIONAL_VIOLATION: Unable to provide real data - L4/L5 escalation required"
+    },
+    
+    "modelSpecificEnforcement": {
+      "L2_deepseek": {
+        "restrictions": ["NO_IMPLEMENTATION", "CLASSIFICATION_ONLY"],
+        "mandatoryPrefix": "ROLE_LIMITATION: Classification and extraction only. Implementation requests trigger ESCALATION_REQUIRED response.",
+        "selfAuditRequired": true
+      },
+      
+      "L3_glm47": {
+        "restrictions": ["NO_DATA_FABRICATION", "EVIDENCE_REQUIRED"],
+        "mandatoryPrefix": "CONSTITUTIONAL_REQUIREMENT: Must provide API documentation URL and test endpoint before any implementation. Math.random() is FORBIDDEN.",
+        "selfAuditRequired": true,
+        "escalationTrigger": "Unable to access real data"
+      },
+      
+      "L4_sonnet": {
+        "responsibility": "OVERSIGHT_AND_IMPLEMENTATION",
+        "auditingDuty": "Review all L2/L3 outputs for constitutional violations"
+      },
+      
+      "L5_opus": {
+        "responsibility": "FINAL_AUTHORITY",
+        "violationResponse": "COMPLETE_OUTPUT_DISCARD"
+      }
+    },
+    
+    "violationConsequences": {
+      "immediate": {
+        "trustRating": "RELIABILITY_NONE",
+        "outputStatus": "DISCARDED_BY_UPPER_LAYERS", 
+        "escalation": "MANDATORY_L4_L5_REVIEW"
+      },
+      
+      "systemResponse": {
+        "violatingModel": "Output marked as unreliable",
+        "upperLayers": "Must regenerate with constitutional model",
+        "userNotification": "Quality issue detected - regenerating with higher quality model"
+      }
+    },
+    
+    "implementationMetrics": {
+      "trackViolations": true,
+      "measureQuality": true,
+      "costEfficiency": true,
+      "targetBudget": 11.11,
+      "expectedROI": "90% reduction in rework costs"
+    }
+  }
+}

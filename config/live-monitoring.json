@@ -1,0 +1,23 @@
+{
+  "schedule": {
+    "frequency": "weekly",
+    "dayOfWeek": "sunday", 
+    "time": "10:00",
+    "cron": "0 10 * * 0"
+  },
+  "filtering": {
+    "countriesOnly": ["Japan"],
+    "citiesInclude": ["Tokyo", "Yokohama", "Osaka", "Nagoya", "Fukuoka"],
+    "excludeVirtual": true
+  },
+  "storage": {
+    "notionOnly": true,
+    "skipCalendar": true,
+    "discordNotification": true
+  },
+  "artistManagement": {
+    "cleanupInactive": true,
+    "excludeDisbanded": true,
+    "minPopularity": 10
+  }
+}
