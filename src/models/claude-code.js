@@ -1,4 +1,4 @@
-const Anthropic = require('@anthropic-ai/sdk');
+const axios = require('axios');
 const winston = require('winston');
 const { exec } = require('child_process');
 const fs = require('fs-extra');
@@ -6,10 +6,9 @@ const path = require('path');
 
 class ClaudeCodeHandler {
   constructor(apiKey) {
-    this.client = new Anthropic({
-      apiKey: apiKey
-    });
-    this.model = 'claude-3-5-sonnet-20241022'; // コード生成に最適化
+    this.apiKey = process.env.DEEPSEEK_API_KEY || apiKey;
+    this.baseUrl = process.env.DEEPSEEK_BASE_URL || 'https://api.deepseek.com';
+    this.model = 'deepseek-chat'; // L1: コスト・スピード最優先
     this.logger = winston.createLogger({
       level: 'info',
       format: winston.format.combine(
@@ -32,25 +31,30 @@ class ClaudeCodeHandler {
       
       const systemPrompt = this.buildSystemPrompt(taskType, context, safeMode);
       
-      const response = await this.client.messages.create({
+      const response = await axios.post(`${this.baseUrl}/v1/chat/completions`, {
         model: this.model,
-        max_tokens: 2000,
+        messages: [
+          { role: 'system', content: systemPrompt },
+          { role: 'user', content: message }
+        ],
         temperature: 0.1, // システム作業は正確性重視
-        system: systemPrompt,
-        messages: [{
-          role: 'user',
-          content: message
-        }]
+        max_tokens: 2000,
+        stream: false
+      }, {
+        headers: {
+          'Authorization': `Bearer ${this.apiKey}`,
+          'Content-Type': 'application/json'
+        }
       });
 
       const result = {
-        content: response.content[0].text,
+        content: response.data.choices[0].message.content,
         model: this.model,
         level: 'L1 (工兵)',
         tokens: {
-          input: response.usage?.input_tokens || 0,
-          output: response.usage?.output_tokens || 0,
-          total: (response.usage?.input_tokens || 0) + (response.usage?.output_tokens || 0)
+          input: response.data.usage?.prompt_tokens || 0,
+          output: response.data.usage?.completion_tokens || 0,
+          total: response.data.usage?.total_tokens || 0
         },
         safeMode,
         timestamp: new Date().toISOString()

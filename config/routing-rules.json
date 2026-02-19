@@ -73,7 +73,7 @@
         "ファイル操作",
         "技術作業"
       ],
-      "model": "claude-code"
+      "model": "deepseek-v3"
     }
   },
   "costOptimization": {
